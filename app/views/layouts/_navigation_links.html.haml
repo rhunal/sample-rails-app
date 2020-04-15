@@ -1,0 +1,12 @@
+- if user_signed_in?
+  - %w().each do |controller|
+    %li.nav-item.dropdown
+      - is_current_controller = controller_name == controller
+      %a{"aria-expanded" => "false", "aria-haspopup" => "true", :class => "nav-link dropdown-toggle #{'active' if is_current_controller}", "data-toggle" => "dropdown", :href => "#", :role => "button"}= controller.titleize
+      .dropdown-menu
+        = link_to "All #{controller.titleize}",
+          send("#{controller}_path"),
+          class: "dropdown-item #{ 'active' if is_current_controller && action_name == 'index' }"
+        = link_to "New #{controller.singularize}",
+          send("new_#{controller.singularize}_path"),
+          class: "dropdown-item #{ 'active' if is_current_controller && action_name == 'new' }"

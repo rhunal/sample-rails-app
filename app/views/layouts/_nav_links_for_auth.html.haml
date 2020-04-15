@@ -1,0 +1,10 @@
+- if user_signed_in?
+  %span.navbar-text
+    Welcome
+    = current_user.username
+    = link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'btn btn-danger btn-sm', style: 'color: white;'
+  %span.navbar-text
+    %small.badge.text-white.bg-warning
+      BETA v#{Sample::Application::VERSION}
+- else
+  = link_to 'Sign in', new_user_session_path

@@ -1,0 +1,10 @@
+%nav.navbar.sticky-top.navbar-expand-lg.navbar-light.bg-light
+  %link{:crossorigin => "anonymous", :href => "https://use.fontawesome.com/releases/v5.0.10/css/all.css", :integrity => "sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg", :rel => "stylesheet"}/
+  = link_to "<span>Sample</span>App".html_safe, root_path, class: 'navbar-brand mb-0 h1'
+  %button.navbar-toggler{"aria-controls" => "navbarSupportedContent", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarSupportedContent", "data-toggle" => "collapse", :type => "button"}
+    %span.navbar-toggler-icon
+  #navbarSupportedContent.collapse.navbar-collapse
+    %ul.navbar-nav.mr-auto
+      = render 'layouts/navigation_links'
+    %ul.navbar-nav.ml-auto.mt-2.mt-lg-0
+      = render 'layouts/nav_links_for_auth'
